@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Rng Simulator - İndir</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1a1a1a;
+            --text-color: #e0e0e0;
+            --primary-green: #00c853;
+            --accent-green: #00e676;
+            --warning-color: #ffd600;
+            --border-color: #2e2e2e;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+            position: relative;
+        }
+
+        .lang-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: transparent;
+            color: var(--primary-green);
+            border: 1px solid var(--primary-green);
+            padding: 6px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            margin-top: 20px;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        .description {
+            text-align: center;
+            color: #b0b0b0;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 25px;
+        }
+
+        .download-btn {
+            background-color: var(--primary-green);
+            color: #000000;
+            font-weight: bold;
+            padding: 15px 40px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: background-color 0.2s;
+        }
+
+        .download-btn:hover {
+            background-color: var(--accent-green);
+        }
+
+        .warning-text {
+            color: var(--warning-color);
+            font-size: 14px;
+            text-align: center;
+            margin-bottom: 40px;
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+        .guide-section {
+            border-top: 1px solid var(--border-color);
+            padding-top: 30px;
+        }
+
+        .guide-title {
+            text-align: center;
+            font-size: 20px;
+            color: #ffffff;
+            margin-bottom: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .guide-step {
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .step-title {
+            color: var(--primary-green);
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .footer-note {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            color: #888888;
+            font-size: 13px;
+            text-align: center;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <button class="lang-button">🌐 English</button>
+
+        <div class="header">
+            <h1>🎲 Selam! Oyunumu indirmek istediğin için teşekkürler!</h1>
+        </div>
+
+        <p class="description">
+            Maalesef sadece .APK olarak yayınlayabiliyorum. Aşağıdaki butona basarak oyunumu indirebilirsin. Oyunun Tutorial kısmı butonun da altında.
+        </p>
+
+        <div class="btn-container">
+            <!-- Gönderdiğiniz Google Drive Bağlantısı yerleştirildi -->
+            <a href="https://google.com" target="_blank" class="download-btn">
+                📥 APK İndir
+            </a>
+        </div>
+
+        <p class="warning-text">
+            ⚠️ Oyunu oynarken internet bağlantısına ihtiyaç vardır, ileride bu sorunu kaldırmayı düşünüyoruz.
+        </p>
+
+        <div class="guide-section">
+            <div class="guide-title">📖 Nasıl Oynanır?</div>
+
+            <div class="guide-step">
+                <div class="step-title">1. Oyunu İndir:</div>
+                Oyunum bir virüs değildir, ama eğer güvenmiyorsanız indirmeyebilirisiniz.
+            </div>
+
+            <div class="guide-step">
+                <div class="step-title">2. Oyunu Aç:</div>
+                Eğer indirdiyseniz ana ekranınıza Basic Rng Simulator diye bir uygulama gelmesi lazım.
+            </div>
+
+            <div class="guide-step">
+                <div class="step-title">3. Oyun Nasıl Oynanır?:</div>
+                Oyunu açtığınızda karşınıza çıkan ekrandan en alttaki roll butonuna tıklayarak "item" çevirebilirsiniz. Bu butonun üstündeki sayaç 10/10 olduğunda şansınız biraz daha artacaktır. Bu çevirme işlemi hiçbir şey harcamaz.
+            </div>
+
+            <div class="guide-step">
+                <div class="step-title">4. Envanter ve Outo Delete:</div>
+                Çevirdiğiniz "item"lar, envanterinizde toplanır. Bunları kuşanabilir ya da silebilirsiniz. Her eşyanın kendine özel bir buton tasarımı ve "pet"i vardır. "Pet"ler, kuşandığınızda ekranınızın orta üst kısmında dönen emojilerdir. Bu tasarım ve petler, kuşandığınızda gelir. Outo Delete ise, bir itemi seçtiğinizde seçili item hemen silinir.
+            </div>
+
+            <div class="guide-step">
+                <div class="step-title">5. Takas Sistemi:</div>
+                Gerekli olan bilgiler zaten yazılı.
+            </div>
+        </div>
+
+        <div class="footer-note">
+            Bir de, kasadaki tip box'a 20 TL ve üzeri bir miktarda para atarsanız garsonlarımızdan biri size bir kağıt veriyomuş — promo kod kısmına onları girebiliyormuşsunuz. Bir de bu kağıtların bir kısmında şu Autorollün şifresi oluyormuş, bu bakın isterseniz :)
+        </div>
+    </div>
+
+</body>
+</html>
+
