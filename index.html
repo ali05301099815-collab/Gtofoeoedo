@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Rng Simulator - Download</title>
+    <style>
+        :root {
+            --bg-dark: #121212;
+            --panel-bg: #1e1e1e;
+            --border-green: #2e7d32;
+            --text-light: #ffffff;
+            --text-gray: #aaaaaa;
+            --btn-green: #4caf50;
+            --btn-hover: #45a049;
+            --warning-red: #ff5252;
+            --tip-bg: #2a2a2a;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .main-container {
+            max-width: 650px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .panel {
+            background-color: var(--panel-bg);
+            border: 2px solid var(--border-green);
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            position: relative;
+        }
+
+        .lang-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: transparent;
+            color: var(--btn-green);
+            border: 1px solid var(--btn-green);
+            padding: 5px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: bold;
+            transition: all 0.2s;
+        }
+
+        .lang-btn:hover {
+            background-color: var(--border-green);
+            color: white;
+        }
+
+        h1, h2 {
+            margin-top: 0;
+            color: white;
+        }
+
+        h1 { font-size: 22px; margin-bottom: 15px; padding-right: 80px; }
+        h2 { font-size: 18px; margin-bottom: 15px; border-bottom: 1px solid #333; padding-bottom: 8px; }
+
+        p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--text-gray);
+            margin-bottom: 20px;
+        }
+
+        .btn-wrapper {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .dl-button {
+            background-color: var(--btn-green);
+            color: white;
+            text-decoration: none;
+            padding: 12px 35px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            transition: background 0.2s;
+        }
+
+        .dl-button:hover {
+            background-color: var(--btn-hover);
+        }
+
+        .alert-text {
+            color: var(--warning-red);
+            font-size: 13px;
+            text-align: center;
+            font-style: italic;
+            margin-top: 10px;
+        }
+
+        .step {
+            margin-bottom: 18px;
+        }
+
+        .step-title {
+            font-weight: bold;
+            color: white;
+            font-size: 15px;
+            margin-bottom: 4px;
+        }
+
+        .step-desc {
+            font-size: 13px;
+            color: var(--text-gray);
+            line-height: 1.5;
+        }
+
+        .tip-box {
+            background-color: var(--tip-bg);
+            border-left: 4px solid var(--btn-green);
+            padding: 15px;
+            border-radius: 0 8px 8px 0;
+            font-size: 13px;
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-container">
+        
+        <!-- ÜST PANEL: OYUN HAKKINDA VE İNDİRME -->
+        <div class="panel">
+            <button class="lang-btn" id="langToggle" onclick="switchLanguage()">English</button>
+            <h1 id="titleTxt">🎲 Selam! Oyunumu indirmek istediğin için teşekkürler!</h1>
+            <p id="descTxt">Maalesef sadece .APK olarak yayınlayabiliyorum. Aşağıdaki butona basarak oyunumu indirebilirsin. Oyunun Tutorial kısmı butonun da altında.</p>
+            
+            <div class="btn-wrapper">
+                <a href="https://google.com" target="_blank" class="dl-button" id="btnTxt">APK İndir</a>
+            </div>
+            
+            <div class="alert-text" id="alertTxt">⚠️ Oyunu oynarken internet bağlantısına ihtiyaç vardır, ileride bu sorunu kaldırmayı düşünüyoruz.</div>
+        </div>
+
+        <!-- ALT PANEL: NASIL OYNANIR -->
+        <div class="panel">
+            <h2 id="guideTitle">📖 Nasıl Oynanır?</h2>
+            
+            <div class="step">
+                <div class="step-title" id="s1T">1. Oyunu İndir:</div>
+                <div class="step-desc" id="s1D">Oyunum bir virüs değildir, ama eğer güvenmiyorsanız indirmeyebilirisiniz.</div>
+            </div>
+
+            <div class="step">
+                <div class="step-title" id="s2T">2. Oyunu Aç:</div>
+                <div class="step-desc" id="s2D">Eğer indirdiyseniz ana ekranınıza Basic Rng Simulator diye bir uygulama gelmesi lazım.</div>
+            </div>
+
+            <div class="step">
+                <div class="step-title" id="s3T">3. Oyun Nasıl Oynanır?:</div>
+                <div class="step-desc" id="s3D">Oyunu açtığınızda karşınıza çıkan ekrandan en alttaki roll butonuna tıklayarak "item" çevirebilirsiniz. Bu butonun üstündeki sayaç 10/10 olduğunda şansınız biraz daha artacaktır. Bu çevirme işlemi hiçbir şey harcamaz.</div>
+            </div>
+
+            <div class="step">
+                <div class="step-title" id="s4T">4. Envanter ve Outo Delete:</div>
+                <div class="step-desc" id="s4D">Çevirdiğiniz "item"lar, envanterinizde toplanır. Bunları kuşanabilir ya da silebilirsiniz. Her eşyanın kendine özel bir buton tasarımı ve "pet"i vardır. "Pet"ler, kuşandığınızda ekranınızın orta üst kısmında dönen emojilerdir. Bu tasarım ve petler, kuşandığınızda gelir. Outo Delete ise, bir itemi seçtiğinizde seçili item hemen silinir.</div>
+            </div>
+
+            <div class="step">
+                <div class="step-title" id="s5T">5. Takas Sistemi:</div>
+                <div class="step-desc" id="s5D">Gerekli olan bilgiler zaten yazılı.</div>
+            </div>
+
+            <div class="tip-box" id="tipTxt">
+                Bir de, kasadaki tip box'a 20 TL ve üzeri bir miktarda para atarsanız garsonlarımızdan biri size bir kağıt veriyomuş — promo kod kısmına onları girebiliyormuşsunuz. Bir de bu kağıtların bir kısmında şu Autorollün şifresi oluyormuş, bu bakın isterseniz :)
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        const locales = {
+            tr: {
+                btn: "English",
+                title: "🎲 Selam! Oyunumu indirmek istediğin için teşekkürler!",
+                desc: "Maalesef sadece .APK olarak yayınlayabiliyorum. Aşağıdaki butona basarak oyunumu indirebilirsin. Oyunun Tutorial kısmı butonun da altında.",
+                dl: "APK İndir",
+                alert: "⚠️ Oyunu oynarken internet bağlantısına ihtiyaç vardır, ileride bu sorunu kaldırmayı düşünüyoruz.",
+                guide: "📖 Nasıl Oynanır?",
+                s1t: "1. Oyunu İndir:",
+                s1d: "Oyunum bir virüs değildir, ama eğer güvenmiyorsanız indirmeyebilirisiniz.",
+                s2t: "2. Oyunu Aç:",
+                s2d: "Eğer indirdiyseniz ana ekranınıza Basic Rng Simulator diye bir uygulama gelmesi lazım.",
+                s3t: "3. Oyun Nasıl Oynanır?:",
+                s3d: "Oyunu açtığınızda karşınıza çıkan ekrandan en alttaki roll butonuna tıklayarak \"item\" çevirebilirsiniz. Bu butonun üstündeki sayaç 10/10 olduğunda şansınız biraz daha artacaktır. Bu çevirme işlemi hiçbir şey harcamaz.",
+                s4t: "4. Envanter ve Outo Delete:",
+                s4d: "Çevirdiğiniz \"item\"lar, envanterinizde toplanır. Bunları kuşanabilir ya da silebilirsiniz. Her eşyanın kendine özel bir buton tasarımı ve \"pet\"i vardır. \"Pet\"ler, kuşandığınızda ekranınızın orta üst kısmında dönen emojilerdir. Bu tasarım ve petler, kuşandığınızda gelir. Outo Delete ise, bir itemi seçtiğinizde seçili item hemen silinir.",
+                s5t: "5. Takas Sistemi:",
+                s5d: "Gerekli olan bilgiler zaten yazılı.",
+                tip: "Bir de, kasadaki tip box'a 20 TL ve üzeri bir miktarda para atarsanız garsonlarımızdan biri size bir kağıt veriyomuş — promo kod kısmına onları girebiliyormuşsunuz. Bir de bu kağıtların bir kısmında şu Autorollün şifresi oluyormuş, bu bakın isterseniz :)"
+            },
+            en: {
+                btn: "Türkçe",
+                title: "🎲 Hi! Thanks for wanting to download my game!",
+                desc: "Unfortunately, I can only publish it as an .APK. You can download my game by clicking the button below. The tutorial part of the game is right under the button.",
+                dl: "Download APK",
+                alert: "⚠️ An internet connection is required to play the game, we are considering removing this requirement in the future.",
+                guide: "📖 How to Play?",
+                s1t: "1. Download the Game:",
+                s1d: "My game is not a virus, but if you do not trust it, you don't have to download it.",
+                s2t: "2. Open the Game:",
+                s2d: "If you downloaded it, an app named Basic Rng Simulator should appear on your home screen.",
+                s3t: "3. How is the Game Played?:",
+                s3d: "When you open the game, you can spin for items by clicking the roll button at the very bottom of the screen. When the counter above this button reaches 10/10, your luck will increase slightly. This rolling process does not cost anything.",
+                s4t: "4. Inventory and Auto Delete:",
+                s4t: "4. Inventory and Auto Delete:",
+                s4d: "The items you spin are gathered in your inventory. You can equip or delete them. Each item has its own unique button design and 'pet'. Pets are rotating emojis in the top middle of your screen when equipped. This design and pets appear once equipped. Auto Delete immediately removes a selected item when you click on it.",
+                s5t: "5. Trading System:",
+                s5d: "The necessary information is already written.",
+                tip: "Also, if you drop 20 TL or more into the tip box at the counter, one of our waiters gives you a piece of paper — you can enter those in the promo code section. And on some of those papers, there's the password for Autoroll, check it out if you want :)"
+            }
+        };
+
+        let currentLanguage = 'tr';
+
+        function switchLanguage() {
+            currentLanguage = currentLanguage === 'tr' ? 'en' : 'tr';
+            const item = locales[currentLanguage];
+
+            document.getElementById('langToggle').innerText = item.btn;
+            document.getElementById('titleTxt').innerText = item.title;
+            document.getElementById('descTxt').innerText = item.desc;
+            document.getElementById('btnTxt').innerText = item.dl;
+            document.getElementById('alertTxt').innerText = item.alert;
+            document.getElementById('guideTitle').innerText = item.guide;
+            
+            document.getElementById('s1T').innerText = item.s1t;
+            document.getElementById('s1D').innerText = item.s1d;
+            document.getElementById('s2T').innerText = item.s2t;
+            document.getElementById('s2D').innerText = item.s2d;
+            document.getElementById('s3T').innerText = item.s3t;
+            document.getElementById('s3D').innerText = item.s3d;
+            document.getElementById('s4T').innerText = item.s4t;
+            document.getElementById('s4D').innerText = item.s4d;
+            document.getElementById('s5T').innerText = item.s5t;
+            document.getElementById('s5D').innerText = item.s5d;
+            
+            document.getElementById('tipTxt').innerText = item.tip;
+        }
+    </script>
+</body>
+</html>
